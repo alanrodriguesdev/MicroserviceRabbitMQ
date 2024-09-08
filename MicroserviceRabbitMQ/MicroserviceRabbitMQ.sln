@@ -17,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroserviceRabbitMQ.Domain
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroserviceRabbitMQ.Infra.Bus", "MicroserviceRabbitMQ.Infra.Bus\MicroserviceRabbitMQ.Infra.Bus.csproj", "{02AC19A9-8239-400C-87F9-4F3510E326BF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "microserviceRabbitMQ.Infra.IoC", "microserviceRabbitMQ.Infra.IoC\microserviceRabbitMQ.Infra.IoC.csproj", "{AD5330B9-1E2A-42C5-BDCB-4E0E9B7243B7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroserviceRabbitMQ.Infra.IoC", "microserviceRabbitMQ.Infra.IoC\MicroserviceRabbitMQ.Infra.IoC.csproj", "{AD5330B9-1E2A-42C5-BDCB-4E0E9B7243B7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Banking", "Banking", "{61AD8A8A-C8C1-4834-9BF9-DCB7AE508FA7}"
 EndProject

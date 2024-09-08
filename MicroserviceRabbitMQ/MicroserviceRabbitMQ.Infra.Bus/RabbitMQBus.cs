@@ -88,7 +88,7 @@ namespace MicroserviceRabbitMQ.Infra.Bus
             {
                 await ProcessEvent(eventName, message).ConfigureAwait(false);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
             }
         }
@@ -106,7 +106,7 @@ namespace MicroserviceRabbitMQ.Infra.Bus
                     var eventType = _eventsTypes.SingleOrDefault(t => t.Name == eventName);
                     var @event = JsonConvert.DeserializeObject(message, eventType);
                     var concretType = typeof(IEventHandler<>).MakeGenericType(eventType);
-                    await (Task)concretType.GetMethod("Handle").Invoke(handler, new object[] { @event });
+                    await   (Task)concretType.GetMethod("Handle").Invoke(handler, new object[] { @event });
                 }
             }
         }
