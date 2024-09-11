@@ -6,13 +6,15 @@ using MicroserviceRabbitMQ.Banking.Domain.Interfaces;
 using MicroserviceRabbitMQ.Domain.Core.Bus;
 using MicroserviceRabbitMQ.Infra.Bus;
 using Microsoft.Extensions.DependencyInjection;
+using System.Reflection;
 
 namespace MicroserviceRabbitMQ.Infra.IoC
 {
     public class DependecyContainer
     {
-        public static void RegisterServices(IServiceCollection services)
+        public static IServiceCollection RegisterServices(IServiceCollection services)
         {
+           
             //Domain Bus
             services.AddTransient<IEventBus, RabbitMQBus>();
 
@@ -22,6 +24,8 @@ namespace MicroserviceRabbitMQ.Infra.IoC
             //Data
             services.AddTransient<IAccountRepository,AccountRepository>();
             services.AddTransient<BankingDBContext>();
+
+            return services;
         }
     }
 }
