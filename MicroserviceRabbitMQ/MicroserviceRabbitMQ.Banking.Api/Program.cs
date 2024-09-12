@@ -14,6 +14,7 @@ builder.Services.AddSwaggerGen(c=>
 {
     c.SwaggerDoc("v1", new OpenApiInfo(new OpenApiInfo { Title = "Banking Microservice", Version = "v1" }));
 });
+builder.Services.AddControllers();
 
 // Adicionar MediatR e especificar o assembly onde estão os handlers
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Program).Assembly));
@@ -60,7 +61,7 @@ app.UseHttpsRedirection();
 //.WithName("GetWeatherForecast")
 //.WithOpenApi();
 
-
+app.MapControllers();
 app.Run();
 
 //internal record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
