@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\microserviceRabbitMQ.Infra.IoC\MicroserviceRabbitMQ.Infra.IoC.csproj" />
+    <ProjectReference Include="..\MicroserviceRabbitMQ.Infra.IoC\MicroserviceRabbitMQ.Infra.IoC.csproj" />
   </ItemGroup>
 
 </Project>
