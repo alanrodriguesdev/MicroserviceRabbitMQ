@@ -1,4 +1,5 @@
 ﻿using MicroserviceRabbitMQ.Banking.Application.Interfaces;
+using MicroserviceRabbitMQ.Banking.Application.Models;
 using MicroserviceRabbitMQ.Banking.Domain.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -20,6 +21,13 @@ namespace MicroserviceRabbitMQ.Banking.Api.Controller
         public ActionResult<IEnumerable<Account>> Get()
         {
             return Ok(_accountService.GetAccounts());
+        }
+
+        [HttpPost]
+        public IActionResult Post([FromBody] AccountTransfer accountTransfer)
+        {
+            _accountService.Transfer(accountTransfer);
+            return Ok(null);
         }
     }
 }
