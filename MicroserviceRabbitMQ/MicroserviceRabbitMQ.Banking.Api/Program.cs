@@ -1,6 +1,7 @@
 
 using MicroserviceRabbitMQ.Banking.Data.Context;
 using MicroserviceRabbitMQ.Infra.IoC;
+using MicroserviceRabbitMQ.Transfer.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 
@@ -22,6 +23,11 @@ builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Progr
 builder.Services.AddDbContext<BankingDBContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("BankingDbConnection"));
+});
+
+builder.Services.AddDbContext<TransferDBContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("TransferDbConnection"));
 });
 
 DependecyContainer.RegisterServices(builder.Services);
