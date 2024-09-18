@@ -1,6 +1,9 @@
 using MicroserviceRabbitMQ.Banking.Data.Context;
+using MicroserviceRabbitMQ.Domain.Core.Bus;
 using MicroserviceRabbitMQ.Infra.IoC;
 using MicroserviceRabbitMQ.Transfer.Data.Context;
+using MicroserviceRabbitMQ.Transfer.Domain.EventHandlers;
+using MicroserviceRabbitMQ.Transfer.Domain.Events;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 
@@ -45,4 +48,13 @@ app.UseHttpsRedirection();
 
 app.MapControllers();
 
+ConfigureEventBus(app);
+
 app.Run();
+
+void ConfigureEventBus(WebApplication app)
+{
+    var eventBus = app.Services.GetRequiredService<IEventBus>();
+    eventBus.Subscribe<TransferCreatedEvent, TransferEventHandler>();
+}
+
